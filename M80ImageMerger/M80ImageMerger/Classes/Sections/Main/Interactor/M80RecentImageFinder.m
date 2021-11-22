@@ -23,7 +23,7 @@
     {
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(onActive:)
-                                                     name:UIApplicationDidBecomeActiveNotification
+                                                     name:NSExtensionHostDidBecomeActiveNotification
                                                    object:nil];
         
     }

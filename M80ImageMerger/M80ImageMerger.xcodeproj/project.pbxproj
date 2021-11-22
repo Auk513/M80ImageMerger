@@ -531,7 +531,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-M80ImageMerger/Pods-M80ImageMerger-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-M80ImageMerger/Pods-M80ImageMerger-resources.sh",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -540,7 +540,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-M80ImageMerger/Pods-M80ImageMerger-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-M80ImageMerger/Pods-M80ImageMerger-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8616A03720E218BC00AAD4BD /* ShellScript */ = {

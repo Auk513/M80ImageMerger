@@ -2,11 +2,11 @@
 platform :ios, '8.0'
 
 target 'M80ImageMerger' do
-  	pod ‘PureLayout’
+  pod 'PureLayout'
 	pod 'SVProgressHUD'
 	pod 'Toast'
-    pod 'Fabric'
-    pod 'Crashlytics'
+  pod 'Fabric'
+  pod 'Crashlytics'
 
 
 end
