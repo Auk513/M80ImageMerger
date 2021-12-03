@@ -1,12 +1,14 @@
 PODS:
-  - Crashlytics (3.10.2):
-    - Fabric (~> 1.7.7)
-  - Fabric (1.7.7)
-  - PureLayout (3.0.2)
-  - SVProgressHUD (2.1.2)
-  - Toast (3.1.0)
+  - CocoaImageHashing (1.9.0)
+  - Crashlytics (3.14.0):
+    - Fabric (~> 1.10.2)
+  - Fabric (1.10.2)
+  - PureLayout (3.1.9)
+  - SVProgressHUD (2.2.5)
+  - Toast (4.0.0)
 
 DEPENDENCIES:
+  - CocoaImageHashing (from `https://github.com/ameingast/cocoaimagehashing.git`)
   - Crashlytics
   - Fabric
   - PureLayout
@@ -14,20 +16,30 @@ DEPENDENCIES:
   - Toast
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  trunk:
     - Crashlytics
     - Fabric
     - PureLayout
     - SVProgressHUD
     - Toast
 
-SPEC CHECKSUMS:
-  Crashlytics: c91a8f1d5846d0e7dcdd57be03452f8bb7d33602
-  Fabric: ca94fe636934aac75b20ad410c45549618e69332
-  PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
-  SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
-  Toast: 14a93686d6c8bfe2727afd342414e35660a8a1f3
+EXTERNAL SOURCES:
+  CocoaImageHashing:
+    :git: https://github.com/ameingast/cocoaimagehashing.git
 
-PODFILE CHECKSUM: 5b86f05e554593450e4d75bb74ca05124c2d0305
+CHECKOUT OPTIONS:
+  CocoaImageHashing:
+    :commit: ad01eee3c3f91bd181f7f4eba7f48f7cb211b51c
+    :git: https://github.com/ameingast/cocoaimagehashing.git
+
+SPEC CHECKSUMS:
+  CocoaImageHashing: 8656031d0899abe6c1c415827de43e9798189c53
+  Crashlytics: 9220f5bc89e7a618df411b4f639389dbfb0e03d2
+  Fabric: ea977e3cd9c20425516d3dafd3bf8c941c51223f
+  PureLayout: 5fb5e5429519627d60d079ccb1eaa7265ce7cf88
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
+
+PODFILE CHECKSUM: 5aa1f77ef782f74e0fd9af037587aec90f26b0e8
 
 COCOAPODS: 1.11.2

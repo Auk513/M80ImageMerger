@@ -10,6 +10,7 @@
 #import <zlib.h>
 #import "UIImage+M80.h"
 #import "M80Constraint.h"
+#import <CommonCrypto/CommonDigest.h>
 
 
 @interface M80ImageFingerprint ()
@@ -31,14 +32,15 @@
 - (void)calc:(UIImage *)image
 {
     UIImage *source = [M80Constraint shouldUseGradientImage:_type] ? [image m80_gradientImage] : image;
+//    UIImage *source = image;
     if (_type == M80FingerprintTypeCRC)
     {
         [self calcCRCImage:source];
     }
-    else if(_type == M80FingerprintTypeHistogram)
-    {
-        [self calcHistImage:source];
-    }
+//    else if(_type == M80FingerprintTypeHistogram)
+//    {
+//        [self calcHistImage:source];
+//    }
 }
 
 - (void)calcCRCImage:(UIImage *)image
@@ -53,8 +55,23 @@
     {
         NSData *cacheData = [NSData dataWithBytes:data + y * width * 4
                                            length:width * 4];
-        uLong print = crc32(0, [cacheData bytes], (uInt)[cacheData length]);
-        [array addObject:@(print)];
+        unsigned char result[CC_MD5_DIGEST_LENGTH];
+        CC_MD5([cacheData bytes], (uInt)[cacheData length], result);
+        NSString *imageHash = [NSString stringWithFormat:
+                               @"%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X",
+                               result[0], result[1], result[2], result[3],
+                               result[4], result[5], result[6], result[7],
+                               result[8], result[9], result[10], result[11],
+                               result[12], result[13], result[14], result[15]];
+        [array addObject:imageHash];
+//        if (@available(iOS 11.0, *)) {
+//            uLong print = crc32_z(0, [cacheData bytes], (uInt)[cacheData length]);
+//            [array addObject:@(print)];
+//        } else {
+//            // Fallback on earlier versions
+//            uLong print = crc32(0, [cacheData bytes], (uInt)[cacheData length]);
+//            [array addObject:@(print)];
+//        }
     }
     _lines = array;
     CFRelease(pixelData);

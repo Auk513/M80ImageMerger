@@ -13,7 +13,8 @@
 @implementation M80Constraint
 + (NSInteger)topOffset
 {
-    if ([UIScreen mainScreen].bounds.size.height == 812)
+//    return 0;
+    if ([UIScreen mainScreen].bounds.size.height >= 812)
     {
         return (44 + 44) * 3;
     }
@@ -25,7 +26,8 @@
 
 + (NSInteger)bottomOffset
 {
-    if ([UIScreen mainScreen].bounds.size.height == 812)
+//    return 0;
+    if ([UIScreen mainScreen].bounds.size.height >= 812)
     {
         return (44 + 34) * 3;
     }
@@ -37,7 +39,8 @@
 
 + (BOOL)isInfoValid:(M80ImageMergeInfo *)info
 {
-    NSInteger threshold = [M80Constraint requiredThreshold:info];
+//    NSInteger threshold = [M80Constraint requiredThreshold:info];
+    NSInteger threshold = 1;
     NSInteger length = info.length;
     NSLog(@"validate info [%@] threshold %d",info,(int)threshold);
     return threshold > 0 &&

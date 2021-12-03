@@ -80,14 +80,14 @@
         
         BOOL success =[M80Constraint isInfoValid:info];
         
-        if (!success)
-        {
-            //CRC 这种较严格匹配失败的话，尝试下比较宽松的匹配 （容易出现误匹配
-            info.type = M80FingerprintTypeHistogram;
-            [info calc];
-            
-            success = [M80Constraint isInfoValid:info];
-        }
+//        if (!success)
+//        {
+//            //CRC 这种较严格匹配失败的话，尝试下比较宽松的匹配 （容易出现误匹配
+//            info.type = M80FingerprintTypeHistogram;
+//            [info calc];
+//            
+//            success = [M80Constraint isInfoValid:info];
+//        }
         
         if (!success)
         {
@@ -154,8 +154,8 @@
             
             UIGraphicsBeginImageContextWithOptions(size, NO, scale);
             [firstImage drawInRect:CGRectMake(0, 0, firstImage.size.width, firstImage.size.height)];
-            UIImage *subSecondImage = [secondImage m80_subImage:CGRectMake(0, secondRange.location, secondImage.size.width, secondImage.size.height - secondRange.location)];
-            [subSecondImage drawInRect:CGRectMake(0, firstRange.location, size.width, subSecondImage.size.height)];
+            UIImage *subSecondImage = [secondImage m80_subImage:CGRectMake(0, secondRange.location+drawInfo.length/2.0, secondImage.size.width, secondImage.size.height - secondRange.location-drawInfo.length/2.0)];
+            [subSecondImage drawInRect:CGRectMake(0, firstRange.location+drawInfo.length/2.0, size.width, subSecondImage.size.height)];
             result = UIGraphicsGetImageFromCurrentImageContext();
             UIGraphicsEndImageContext();
             
