@@ -7,7 +7,7 @@
 //
 
 #import "M80MergeResult.h"
-#import "UIView+Toast.h"
+//#import "UIView+Toast.h"
 
 @import Photos;
 
@@ -26,7 +26,7 @@
         
 #ifndef DEBUG
             UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
-            [keyWindow makeToast:@"清理临时文件..."];
+//            [keyWindow makeToast:@"清理临时文件..."];
             
             [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
                 [PHAssetChangeRequest deleteAssets:assets];

@@ -17,6 +17,8 @@ typedef enum : NSUInteger {
 #define M80ERRORDOMAIN @"www.xiangwangfeng.com"
 
 @interface M80ImageGenerator : NSObject
+
+@property (nonatomic,strong)    NSMutableArray *infos;
 @property (nonatomic,strong)    NSError *error;
 
 - (BOOL)feedImage:(UIImage *)image;

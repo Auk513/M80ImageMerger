@@ -8,7 +8,6 @@
 
 #import "M80ImageMergeInfo.h"
 #import "M80Constraint.h"
-#import <CocoaImageHashing/OSImageHashing.h>
 
 
 @interface M80ImageMergeInfo ()
@@ -127,7 +126,9 @@
     
 }
 
-
+- (NSInteger)lengthPixel {
+    return self.length/self.firstImage.scale;
+}
 
 - (NSString *)description
 {
@@ -152,9 +153,9 @@
     }
 }
 
-- (BOOL)dataIsX:(NSData *)x equalTo:(NSData *)y {
-    return [[OSImageHashing sharedInstance] compareImageData:x to:y withProviderId:OSImageHashingProviderDHash];
-}
+//- (BOOL)dataIsX:(NSData *)x equalTo:(NSData *)y {
+//    return [[OSImageHashing sharedInstance] compareImageData:x to:y withProviderId:OSImageHashingProviderDHash];
+//}
 
 @end
 
